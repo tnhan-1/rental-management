@@ -1,20 +1,21 @@
 import java.util.ArrayList;
 import java.util.List;
 
-// Kế thừa từ User (Không khai báo lại id, name, email...)
 public class PropertyOwner extends User {
-    private List<Property> listOfProperties;
+    private List<Property> ownedProperties;
 
-    public PropertyOwner(String id, String name, String email, String phone) {
-        super(id, name, email, phone);
-        this.listOfProperties = new ArrayList<>();
+    public PropertyOwner(int userId, String firstName, String lastName, String email) {
+        super(userId, firstName, lastName, email);
+        this.ownedProperties = new ArrayList<>();
     }
 
-    public void addProperty(Property property) {
-        this.listOfProperties.add(property);
+    public Property createProperty(int propertyId, String description, double rentalRate) {
+        Property property = new Property(propertyId, description, rentalRate);
+        ownedProperties.add(property);
+        return property;
     }
 
-    public List<Property> getListOfProperties() {
-        return listOfProperties;
+    public List<Property> getProperties() {
+        return ownedProperties;
     }
 }
