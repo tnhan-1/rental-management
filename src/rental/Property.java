@@ -29,38 +29,15 @@ public class Property {
         return this.propertyId;
     }
 
-    public void setPropertyId(int propertyId) {
-        this.propertyId = propertyId;
-    }
-
-    public int getPropertyIdentifier() {
-        return this.propertyId;
-    }
-
     public String getDescription() {
         return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public double getRentalRate() {
         return this.rentalRate;
     }
 
-    public void setRentalRate(double rentalRate) {
-        if (rentalRate <= 0) {
-            throw new IllegalArgumentException("Rental rate must be greater than zero.");
-        }
-        this.rentalRate = rentalRate;
-    }
-
     public boolean isAvailable() {
-        return this.isAvailable;
-    }
-
-    public boolean getIsAvailable() {
         return this.isAvailable;
     }
 
@@ -68,17 +45,9 @@ public class Property {
         this.isAvailable = isAvailable;
     }
 
-    public void setIsAvailable(boolean isAvailable) {
-        this.isAvailable = isAvailable;
-    }
-
     @Override
     public String toString() {
-        return "Property{" +
-                "propertyId=" + propertyId +
-                ", description='" + description + '\'' +
-                ", rentalRate=" + rentalRate +
-                ", isAvailable=" + isAvailable +
-                '}';
+        return String.format("Property [propertyId=%d, description='%s', rentalRate=%.2f, isAvailable=%b]",
+                propertyId, description, rentalRate, isAvailable);
     }
 }
