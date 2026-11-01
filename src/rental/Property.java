@@ -5,23 +5,23 @@ public class Property {
     private boolean isAvailable;
 
     public Property(int propertyId, String description, double rentalRate) {
-        if (rentalRate <= 0) {
-            throw new IllegalArgumentException("Rental rate must be greater than zero.");
-        }
+        validatePropertyId(propertyId);
+        validateDescription(description);
+        validateRentalRate(rentalRate);
+
         this.propertyId = propertyId;
-        this.description = description;
+        this.description = description.trim();
         this.rentalRate = rentalRate;
         this.isAvailable = true;
     }
 
     public void updateDescription(String description) {
-        this.description = description;
+        validateDescription(description);
+        this.description = description.trim();
     }
 
     public void updateRentalRate(double rentalRate) {
-        if (rentalRate <= 0) {
-            throw new IllegalArgumentException("Rental rate must be greater than zero.");
-        }
+        validateRentalRate(rentalRate);
         this.rentalRate = rentalRate;
     }
 
@@ -49,5 +49,23 @@ public class Property {
     public String toString() {
         return String.format("Property [propertyId=%d, description='%s', rentalRate=%.2f, isAvailable=%b]",
                 propertyId, description, rentalRate, isAvailable);
+    }
+
+    private static void validatePropertyId(int propertyId) {
+        if (propertyId <= 0) {
+            throw new IllegalArgumentException("PropertyID must be a positive integer.");
+        }
+    }
+
+    private static void validateDescription(String description) {
+        if (description == null || description.trim().isEmpty()) {
+            throw new IllegalArgumentException("Description must be nonempty after trimming.");
+        }
+    }
+
+    private static void validateRentalRate(double rentalRate) {
+        if (!Double.isFinite(rentalRate) || rentalRate <= 0) {
+            throw new IllegalArgumentException("RentalRate must be a finite, positive decimal number.");
+        }
     }
 }
