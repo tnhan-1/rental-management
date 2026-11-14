@@ -1,3 +1,5 @@
+package rental;
+
 import java.time.LocalDate;
 
 public class RentalContract {

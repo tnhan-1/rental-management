@@ -1,3 +1,5 @@
+package rental;
+
 public class Property {
     private int propertyId;
     private String description;
