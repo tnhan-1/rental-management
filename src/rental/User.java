@@ -1,3 +1,5 @@
+package rental;
+
 import java.util.regex.Pattern;
 
 public class User {
