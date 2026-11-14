@@ -1,3 +1,4 @@
+import rental.*;
 import java.time.LocalDate;
 
 // Plain Java test (no library needed). Run: see the command in the pull request description.

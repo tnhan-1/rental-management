@@ -1,3 +1,5 @@
+import rental.*;
+
 public class PropertyTest {
     private static int passed = 0;
     private static int failed = 0;

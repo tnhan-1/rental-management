@@ -1,4 +1,6 @@
 // Plain Java test (no library needed). Run: see the command in the pull request description.
+import rental.*;
+
 public class PropertyOwnerTest {
     private static int passed = 0;
     private static int failed = 0;
